@@ -11,15 +11,11 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(message){
-    try {
-        let choice = prompt(message).toLowerCase();
-        if((choice !== 'scissors') && (choice !== 'paper') && (choice !== 'rock')) {
-            throw new Error("Invalid selection. Please choose 'scissors', 'paper' or 'rock'.");            
-        }
-        return choice;
-    } catch (e) {
-        console.error(e.message);
+    let choice = prompt(message).toLowerCase();
+    if((choice !== 'scissors') && (choice !== 'paper') && (choice !== 'rock')) {
+        throw new Error("Invalid selection. Please choose 'scissors', 'paper' or 'rock'.");            
     }
+    return choice;
 }
 
 function calculateResult(playerChoice, computerChoice){
@@ -49,17 +45,22 @@ let message = "Choose scissors, paper or rock!";
 
 while (!resolved) {
 
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice(message);
-    result = calculateResult(playerChoice, computerChoice);
-
-    if(result == 'win'){
-        console.log(`Congratulations, you win! ${playerChoice} beats ${computerChoice}`);
-        resolved = true;
-    } else if (result == 'loss') {
-        console.log(`Sorry, you lose... ${playerChoice} loses to ${computerChoice}`);
-        resolved = true;
-    } else {
-        message = `It was a draw! ${playerChoice} vs ${computerChoice}. Try again!`;
+    try {
+        computerChoice = getComputerChoice();
+        playerChoice = getPlayerChoice(message);
+        result = calculateResult(playerChoice, computerChoice);
+    
+        if(result == 'win'){
+            console.log(`Congratulations, you win! ${playerChoice} beats ${computerChoice}`);
+            resolved = true;
+        } else if (result == 'loss') {
+            console.log(`Sorry, you lose... ${playerChoice} loses to ${computerChoice}`);
+            resolved = true;
+        } else {
+            message = `It was a draw! ${playerChoice} vs ${computerChoice}. Try again!`;
+        }
+    } catch (e) {
+        console.error(e.message);
+        message = "Invalid selection. Try again."
     }
 }
