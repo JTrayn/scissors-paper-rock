@@ -76,18 +76,16 @@ function getPlayerChoice(message){
 // Takes both player and computer choices and returns 'win', 'loss or 'draw'
 function calculateResult(playerChoice, computerChoice){
 
+    if (playerChoice === computerChoice) return 'draw';
     switch (playerChoice) {
         case 'scissors':
-            if(computerChoice === 'scissors') return 'draw';
-            else if(computerChoice === 'paper') return 'win';
+            if(computerChoice === 'paper') return 'win';
             break;
         case 'paper':
-            if(computerChoice === 'paper') return 'draw';
-            else if(computerChoice === 'rock') return 'win';
+            if(computerChoice === 'rock') return 'win';
             break;
         case 'rock':
-            if(computerChoice === 'rock') return 'draw';
-            else if(computerChoice === 'scissors') return 'win';
+            if(computerChoice === 'scissors') return 'win';
             break;
     }
     return 'loss';
