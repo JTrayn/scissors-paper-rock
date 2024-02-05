@@ -106,3 +106,9 @@ button:hover {
 h1 {
     align-self: center;
 }
+
+.player-chance,
+.computer-chance {
+    margin: 5px;
+    color: blue;
+}
