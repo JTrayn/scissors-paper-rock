@@ -12,23 +12,97 @@ body {
     border: 1px solid rgb(226, 226, 226);
     box-shadow: 1px 2px 4px;
     width: 500px;
-    align-items: center;
+    align-items: stretch;
     padding: 10px;
     background-color: aliceblue;
     border-radius: 10px;
+    gap: 5px;
 }
 
-button {
-    margin: 15px;
-    padding: 15px;
-    border-radius: 4px;
-}
+
 
 button:hover {
     background-color: rgb(231, 231, 231);
 }
 
-#textbox {
+.result-container {
+    display: flex;
     padding: 10px;
-    border-radius: 5px;
+    background-color: rgb(215, 236, 255);
+    border-radius: 8px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    
+}
+
+.middle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.card-text {
+
+}
+
+.computer-score,
+.player-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.card-score-player,
+.card-score-computer {
+    font-size: 40px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.score-card {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 80px;
+    border: 4px solid  rgb(164, 213, 255);
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px;
+}
+
+.score-header {
+    background-color: rgb(215, 236, 255);
+    height: 30px;
+    display: flex;button {
+        padding: 15px;
+        border-radius: 4px;
+    }
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.score-container {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+
+.button-container {
+
+}
+
+.button {
+    margin: 5px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+h1 {
+    align-self: center;
 }

@@ -9,9 +9,25 @@
 <body>
     <div class="card">
         <h1>Scissors, Paper, ROCK!</h1>
-        <textarea name="" id="textbox" cols="50" rows="20"></textarea>
-        <div>
-            <button id="playgame">Play Game!</button>
+        <div class="middle-container">
+            <div class="button-container">
+                <button class="scissors button">Scissors</button>
+                <button class="paper button">Paper</button>
+                <button class="rock button">Rock</button>
+            </div>
+            <div class="score-container">
+                <div class="score-card">    
+                    <div class="score-header"><p class="card-text">Player</p></div>
+                    <div class="player-score"><p class="card-score-player">0</p></div>
+                </div>
+                <div class="score-card">
+                    <div class="score-header"><p class="card-text">Computer</p></div>
+                    <div class="computer-score"><p class="card-score-computer">0</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="result-container">
+            <h2 class="result">First to 5 wins!</h2>
         </div>
     </div>
     
