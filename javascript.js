@@ -4,10 +4,12 @@
 
 let computerChoice;
 let playerChoice;
+let rounds = 10;
 let scissorButton = document.querySelector('.scissors');
 let paperButton = document.querySelector('.paper');
 let rockButton = document.querySelector('.rock');
 let textBox = document.querySelector('.result');
+textBox.textContent = `First to ${rounds} wins!`;
 let playerScore = document.querySelector('.card-score-player');
 let computerScore = document.querySelector('.card-score-computer');
 let card = document.querySelector('.card');
@@ -41,8 +43,8 @@ function updateChanceText() {
         playerWinText.style.color = 'blue';
         computerWinText.style.color = 'blue';
     }
-    playerWinText.textContent = `${playerWinChance}%`;
-    computerWinText.textContent = `${computerWinChance}%`;
+    playerWinText.textContent = `${playerWinChance.toFixed(2)}%`;
+    computerWinText.textContent = `${computerWinChance.toFixed(2)}%`;
     
 
     /**
@@ -53,14 +55,14 @@ function updateChanceText() {
     function calculateWinPercentage(playerScore, computerScore) {
 
         let CHANCE = 0.5;
-        let ROUNDS = 5;
+        let ROUNDS = rounds;
         let playerChance = CHANCE ** (ROUNDS - playerScore);
         let computerChance = CHANCE ** (ROUNDS - computerScore);
         let factor = computerChance / playerChance;
 
-        if (playerScore === 5) {
+        if (playerScore === ROUNDS) {
             return 100;
-        } else if (computerScore === 5) {
+        } else if (computerScore === ROUNDS) {
             return 0;
         } else if (playerScore === computerScore) {
             return 0.5 * 100;
@@ -81,12 +83,12 @@ function runGame(choice){
     playerChoice = choice;
     textBox.textContent = calculateResult(playerChoice, computerChoice);
 
-    if(+playerScore.textContent === 5) {
-        textBox.textContent = `You won the match! First to 5!`;
+    if(+playerScore.textContent === rounds) {
+        textBox.textContent = `You won the match! First to ${rounds}!`;
         playAgain();
         
-    } else if(+computerScore.textContent === 5) {
-        textBox.textContent = `You lost the match! Computer won first to 5!`;
+    } else if(+computerScore.textContent === rounds) {
+        textBox.textContent = `You lost the match! Computer won first to ${rounds}!`;
         playAgain();
     }
 }
@@ -107,7 +109,7 @@ function playAgain() {
     playAgainButton.addEventListener('click', e => {
         playerScore.textContent = 0;
         computerScore.textContent = 0;
-        textBox.textContent = 'New game. First to 5 wins!';
+        textBox.textContent = `New game. First to ${rounds} wins!`;
         updateChanceText();
         scissorButton.disabled = false;
         paperButton.disabled = false;
